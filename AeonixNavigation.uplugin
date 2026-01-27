@@ -25,11 +25,6 @@
 			"LoadingPhase":  "PostEngineInit"
 		},
 		{
-			"Name": "AeonixNavigationTests",
-			"Type": "DeveloperTool",
-			"LoadingPhase": "Default"
-		},
-		{
 			"Name": "AeonixGameUtils",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
