@@ -590,13 +590,8 @@ void FAeonixData::RasteriseLayer(layerindex_t aLayer, const IAeonixCollisionQuer
 				// Now check if we have any blocking, and search leaf nodes
 				FVector Position;
 				GetNodePosition(0, i, Position);
-
-				FCollisionQueryParams params;
-				params.bFindInitialOverlaps = true;
-				params.bTraceComplex = false;
-				params.TraceTag = "AeonixRasterize";
+				
 				if (CollisionInterface.IsBlocked(Position, GetVoxelSize(0) * 0.5f, GenerationParameters.CollisionChannel, GenerationParameters.AgentRadius))
-				// if (IsBlocked(Position, GetVoxelSize(0) * 0.5f))
 				{
 					// Rasterize my leaf nodes
 					FVector leafOrigin = nodePos - (FVector(GetVoxelSize(aLayer) * 0.5f));
