@@ -338,7 +338,7 @@ bool FAeonixData::IsAnyMemberBlocked(layerindex_t aLayer, mortoncode_t aCode) co
 {
 	mortoncode_t parentCode = aCode >> 3;
 
-	if (aLayer == OctreeData.BlockedIndices.Num())
+	if (aLayer >= OctreeData.BlockedIndices.Num())
 	{
 		return true;
 	}
