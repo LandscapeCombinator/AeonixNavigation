@@ -355,7 +355,7 @@ void UAITask_AeonixMoveTo::RequestPathSynchronous()
 	UE_VLOG(this, VLogAeonixNavigation, Log, TEXT("AeonixMoveTo: Requesting Synchronous pathfinding!"));
 	UE_LOG(LogAeonixNavigation, Log, TEXT("AeonixMoveTo: Requesting Synchronous pathfinding!"));
 	
-	if (AeonixSubsystem->FindPathImmediateAgent(NavComponent, MoveRequest.GetGoalLocation(), NavComponent->GetPath()))
+	if (AeonixSubsystem->FindPathImmediateAgent(NavComponent, MoveRequest.GetDestination(), NavComponent->GetPath()))
 	{
 		Result.Code = EAeonixPathfindingRequestResult::Success;
 	}
@@ -371,7 +371,7 @@ void UAITask_AeonixMoveTo::RequestPathAsync()
 	if (!AeonixNavComponent)
 		return;
 
-	FAeonixPathFindRequestCompleteDelegate& PathRequestCompleteDelegate = AeonixSubsystem->FindPathAsyncAgent(NavComponent, MoveRequest.GetGoalLocation(), NavComponent->GetPath());
+	FAeonixPathFindRequestCompleteDelegate& PathRequestCompleteDelegate = AeonixSubsystem->FindPathAsyncAgent(NavComponent, MoveRequest.GetDestination(), NavComponent->GetPath());
 	PathRequestCompleteDelegate.BindDynamic(this, &UAITask_AeonixMoveTo::OnPathFindComplete);
 	
 	Result.Code = EAeonixPathfindingRequestResult::Deferred;
